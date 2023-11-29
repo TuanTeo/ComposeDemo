@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,12 +19,14 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.ui.theme.ComposeDemoTheme
+import com.example.composedemo.view.LoginPage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +38,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Login()
+//                    Login()
+                    LoginPage.LoginPage()
                 }
             }
         }
@@ -90,7 +95,7 @@ fun SplashButton() {
             Modifier
                 .height(52.dp)
                 .width(304.dp)) {
-            Text(text = "Sign up")
+            Text(text = "Sign up", fontSize = 16.sp, color = colorResource(R.color.mainColor))
         }
     }
 }
@@ -101,8 +106,10 @@ fun LoginButton() {
         Modifier
             .height(52.dp)
             .width(304.dp),
+        colors = ButtonDefaults.buttonColors(colorResource(R.color.mainColor)),
+        shape = RoundedCornerShape(14.dp)
     ) {
-        Text(text = "Login")
+        Text(text = "Login", fontSize = 16.sp)
     }
 }
 
@@ -114,7 +121,8 @@ fun GreetingPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            Login()
+//            Login()
+            LoginPage.LoginPage()
         }
     }
 }
