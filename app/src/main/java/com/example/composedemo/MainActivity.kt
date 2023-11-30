@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.ui.theme.ComposeDemoTheme
+import com.example.composedemo.view.HomePage
 import com.example.composedemo.view.LoginPage
 import com.example.composedemo.view.SignUpPage
 
@@ -41,7 +42,8 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    Login()
 //                    LoginPage.LoginPage()
-                    SignUpPage.SignUpPage()
+//                    SignUpPage.SignUpPage()
+                    HomePage.HomePage()
                 }
             }
         }

@@ -9,5 +9,20 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#5B67CA</color>
     <color name="gray">#C6CEDD</color>
+    <color name="title_color">#12175E</color>
+    <color name="text_description_color">#575757</color>
+    <color name="task_time">#9AA8C7</color>
+    <color name="task_state_item_background">#338F99EB</color>
+    <color name="task_state_item_text">#8F99EB</color>
+    <color name="task_item_background">#F9FAFD</color>
+
+    <color name="task_state_item_text_cancel">#E88B8C</color>
+    <color name="task_state_item_background_cancel">#33E88B8C</color>
+
+    <color name="task_state_item_text_completed">#7EC8E7</color>
+    <color name="task_state_item_background_completed">#337EC8E7</color>
+
+    <color name="task_state_item_text_on_going">#8BE88D</color>
+    <color name="task_state_item_background_on_going">#338BE88D</color>
     <color name="bg_search_color">#F6F6F6</color>
 </resources>
