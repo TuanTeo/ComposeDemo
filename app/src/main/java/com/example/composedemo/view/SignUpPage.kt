@@ -1,22 +1,16 @@
 package com.example.composedemo.view
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -40,12 +34,14 @@ import com.example.composedemo.LoginButton
 import com.example.composedemo.R
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
-class LoginPage {
-
+/**
+ * Created by tuan.tran3 on 11/30/2023.
+ */
+class SignUpPage {
     companion object {
 
         @Composable
-        fun LoginPage() {
+        fun SignUpPage() {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceEvenly,
@@ -58,7 +54,7 @@ class LoginPage {
                     horizontalArrangement = Arrangement.Start,
                 ) {
                     Text(
-                        text = "Login",
+                        text = "Sign Up",
                         fontSize = 36.sp,
                         color = colorResource(R.color.mainColor),
                         style = TextStyle(fontWeight = FontWeight(600))
@@ -66,21 +62,12 @@ class LoginPage {
                 }
 
                 Column {
-                    TextFieldExample("Email ID or Username", R.drawable.message)
-                    TextFieldExample("Password", R.drawable.lock, R.drawable.hide)
-                    Row(
-                        horizontalArrangement = Arrangement.End,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(0.dp, 8.dp, 35.dp, 0.dp)
-                    ) {
-                        Text(text = "Forgot Password?",
-                            fontSize = 12.sp,
-                            color = colorResource(id = R.color.mainColor))
-                    }
+                    TextFieldExample("Username", R.drawable.message)
+                    TextFieldExample("Email ID", R.drawable.lock)
+                    TextFieldExample("Password", R.drawable.lock)
                 }
 
-                LoginButton("Login")
+                LoginButton("Create")
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -116,13 +103,13 @@ class LoginPage {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = stringResource(id = R.string.dont_have_an_account),
+                        text = stringResource(id = R.string.have_any_account),
                         color = colorResource(id = R.color.mainColor),
                         fontSize = 12.sp,
                         fontWeight = FontWeight(weight = 400),
                     )
                     Text(
-                        text = stringResource(id = R.string.sign_up),
+                        text = stringResource(id = R.string.sign_in),
                         color = colorResource(id = R.color.mainColor),
                         fontSize = 14.sp,
                         fontWeight = FontWeight(weight = 600),
@@ -135,7 +122,7 @@ class LoginPage {
         @OptIn(ExperimentalMaterial3Api::class)
         @Composable
         fun TextFieldExample(label: String, leadingIcon: Int, trailingIcon: Int? = null) {
-            var textInput by remember { mutableStateOf("")}
+            var textInput by remember { mutableStateOf("") }
             TextField(
                 value = textInput,
                 onValueChange = { textInput = it},
@@ -155,15 +142,15 @@ class LoginPage {
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    ComposeDemoTheme {
-//        Surface(
-//            modifier = Modifier.fillMaxSize(),
-//            color = MaterialTheme.colorScheme.background
-//        ) {
-//            LoginPage.LoginPage()
-//        }
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ComposeDemoTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            SignUpPage.SignUpPage()
+        }
+    }
+}

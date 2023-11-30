@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 import com.example.composedemo.view.LoginPage
+import com.example.composedemo.view.SignUpPage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    Login()
-                    LoginPage.LoginPage()
+//                    LoginPage.LoginPage()
+                    SignUpPage.SignUpPage()
                 }
             }
         }
@@ -89,7 +91,7 @@ fun SplashButton() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LoginButton()
+        LoginButton("Login")
 
         TextButton(onClick = { },
             Modifier
@@ -101,7 +103,7 @@ fun SplashButton() {
 }
 
 @Composable
-fun LoginButton() {
+fun LoginButton(label: String) {
     Button(onClick = {  },
         Modifier
             .height(52.dp)
@@ -109,7 +111,7 @@ fun LoginButton() {
         colors = ButtonDefaults.buttonColors(colorResource(R.color.mainColor)),
         shape = RoundedCornerShape(14.dp)
     ) {
-        Text(text = "Login", fontSize = 16.sp)
+        Text(text = label, fontSize = 16.sp)
     }
 }
 
