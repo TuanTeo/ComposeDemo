@@ -102,7 +102,7 @@ class BottomAppBar {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BottomAppBarPreview() {
     ComposeDemoTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),

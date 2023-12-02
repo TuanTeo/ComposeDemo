@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#5B67CA</color>
     <color name="gray">#C6CEDD</color>
+    <color name="bg_search_color">#F6F6F6</color>
 </resources>
