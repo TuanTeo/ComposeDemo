@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import com.example.composedemo.R
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 import com.example.composedemo.utils.Const
+import com.example.composedemo.view.custom.BottomAppBar
 
 /**
  * Created by tuan.tran3 on 11/30/2023.
@@ -46,14 +47,20 @@ class HomePage {
                     .fillMaxHeight()
                     .fillMaxWidth()
                     .padding(24.dp, 0.dp, 24.dp, 0.dp)
-                    .verticalScroll(rememberScrollState())
             ) {
-                Box(Modifier.height(45.dp))
-                Header()
-                Box(Modifier.height(32.dp))
-                MyTask()
-                Box(Modifier.height(32.dp))
-                TodayTask()
+                Column(
+                    modifier = Modifier.weight(1f).verticalScroll(rememberScrollState())
+                ) {
+                    Box(Modifier.height(45.dp))
+                    Header()
+                    Box(Modifier.height(32.dp))
+                    MyTask()
+                    Box(Modifier.height(32.dp))
+                    TodayTask()
+                }
+                Column {
+                    BottomAppBar.BottomAppBar()
+                }
             }
         }
 
@@ -113,7 +120,9 @@ class HomePage {
                 verticalArrangement = Arrangement.SpaceAround
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(0.dp, 0.dp, 0.dp, 12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(0.dp, 0.dp, 0.dp, 12.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Row {
