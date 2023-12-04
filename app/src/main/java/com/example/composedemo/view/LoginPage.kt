@@ -1,23 +1,15 @@
 package com.example.composedemo.view
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -33,19 +25,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.composedemo.LoginButton
 import com.example.composedemo.R
-import com.example.composedemo.ui.theme.ComposeDemoTheme
+import com.example.composedemo.utils.Const
 
 class LoginPage {
 
     companion object {
 
         @Composable
-        fun LoginPage() {
+        fun LoginPage(navController: NavController) {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceEvenly,
@@ -80,7 +72,9 @@ class LoginPage {
                     }
                 }
 
-                LoginButton("Login")
+                LoginButton("Login") {
+                    navController.navigate(Const.Screen.HOME)
+                }
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally

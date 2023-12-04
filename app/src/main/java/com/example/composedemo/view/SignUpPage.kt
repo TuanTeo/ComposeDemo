@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -27,12 +25,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.composedemo.LoginButton
 import com.example.composedemo.R
-import com.example.composedemo.ui.theme.ComposeDemoTheme
+import com.example.composedemo.utils.Const
 
 /**
  * Created by tuan.tran3 on 11/30/2023.
@@ -41,7 +39,7 @@ class SignUpPage {
     companion object {
 
         @Composable
-        fun SignUpPage() {
+        fun SignUpPage(navController: NavController) {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceEvenly,
@@ -67,7 +65,9 @@ class SignUpPage {
                     TextFieldExample("Password", R.drawable.lock)
                 }
 
-                LoginButton("Create")
+                LoginButton("Create") {
+                    navController.navigate(Const.Screen.LOGIN)
+                }
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally

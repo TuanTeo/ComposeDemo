@@ -25,7 +25,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.composedemo.ui.theme.ComposeDemoTheme
+import com.example.composedemo.utils.Const
 import com.example.composedemo.view.HomePage
 import com.example.composedemo.view.LoginPage
 import com.example.composedemo.view.SignUpPage
@@ -40,10 +45,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                    Login()
-//                    LoginPage.LoginPage()
-//                    SignUpPage.SignUpPage()
-                    HomePage.HomePage()
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = Const.Screen.SPLASH) {
+                        composable(Const.Screen.SPLASH) { Splash(navController) }
+                        composable(Const.Screen.LOGIN) { LoginPage.LoginPage(navController) }
+                        composable(Const.Screen.SIGNUP) { SignUpPage.SignUpPage(navController) }
+                        composable(Const.Screen.HOME) { HomePage.HomePage() }
+                    }
                 }
             }
         }
@@ -51,7 +59,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Login() {
+fun Splash(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
@@ -67,7 +75,7 @@ fun Login() {
 
         IntroductionApplication()
 
-        SplashButton()
+        SplashButton(navController)
     }
 }
 
@@ -89,13 +97,13 @@ fun IntroductionApplication() {
 }
 
 @Composable
-fun SplashButton() {
+fun SplashButton(navController: NavController) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LoginButton("Login")
+        LoginButton("Login") { navController.navigate(Const.Screen.LOGIN) }
 
-        TextButton(onClick = { },
+        TextButton(onClick = { navController.navigate(Const.Screen.SIGNUP) },
             Modifier
                 .height(52.dp)
                 .width(304.dp)) {
@@ -105,8 +113,8 @@ fun SplashButton() {
 }
 
 @Composable
-fun LoginButton(label: String) {
-    Button(onClick = {  },
+fun LoginButton(label: String, onClick: () -> Unit) {
+    Button(onClick = onClick,
         Modifier
             .height(52.dp)
             .width(304.dp),
@@ -126,7 +134,7 @@ fun GreetingPreview() {
             color = MaterialTheme.colorScheme.background
         ) {
 //            Login()
-            LoginPage.LoginPage()
+//            LoginPage.LoginPage()
         }
     }
 }

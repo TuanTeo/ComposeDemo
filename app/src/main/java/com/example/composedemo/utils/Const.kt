@@ -10,4 +10,11 @@ class Const {
          const val ITEM_PENDING = 2
          const val ITEM_COMPLETED = 3
     }
+
+    object Screen {
+        const val SPLASH = "Splash"
+        const val LOGIN = "Login"
+        const val SIGNUP = "SignUp"
+        const val HOME = "Home"
+    }
 }
